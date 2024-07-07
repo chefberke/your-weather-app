@@ -1,4 +1,3 @@
-import React from "react";
 import Title from "./components/Title";
 import Search from "./components/Search";
 import City from "./components/City";

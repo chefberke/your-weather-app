@@ -1,5 +1,3 @@
-import React from "react";
-
 import moonClouds from "../assets/moon_and_clouds.svg";
 import moonRain from "../assets/moon_and_rain.svg";
 import moonStarsCloud from "../assets/moon_and_stars_and_cloud.svg";

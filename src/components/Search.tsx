@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getData } from "../redux/weatherSlice";
+import { AppDispatch } from "../redux/store";
 
 function Search() {
   const [searchInput, setSearchInput] = useState("");
   const dispatch = useDispatch();
 
-  function handleEnter(e: React.KeyboardEvent<HTMLInputElement>) {
+  function handleEnter(e: React.KeyboardEvent<HTMLInputElement>, dispatch: AppDispatch) {
     if (e.key === "Enter") {
       dispatch(getData(searchInput));
     }
@@ -19,10 +20,11 @@ function Search() {
           <input
             placeholder="Search a city..."
             onChange={(e) => setSearchInput(e.target.value)}
-            onKeyDown={handleEnter}
+            onKeyDown={(e) => handleEnter(e, dispatch)}
             className="input shadow-lg focus:border-2 border-gray-300 px-5 py-3 rounded-xl w-56 transition-all focus:w-60 outline-none"
             name="search"
           />
+
           <svg
             className="size-6 absolute top-3 right-3 text-gray-500"
             stroke="currentColor"

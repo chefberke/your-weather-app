@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { weatherState } from "./types/weatherState";
+import { RootState } from "./store";
 
 const initialState: weatherState = {
   data: [],
@@ -8,7 +9,7 @@ const initialState: weatherState = {
   error: null,
 };
 
-export const getData = createAsyncThunk<any, string, { rejectValue: string }>(
+export const getData = createAsyncThunk<any, string, { rejectValue: RootState }>(
   "weather/getData",
   async (city: string) => {
     const API_KEY = import.meta.env.VITE_SECRET;
